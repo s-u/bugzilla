@@ -88,8 +88,11 @@ my $app = builder {
 
     foreach my $cgi_name ( keys %cgi_app ) {
         mount "/$cgi_name" => $cgi_app{$cgi_name};
-        mount "/bugzilla/$cgi_name" => $cgi_app{$cgi_name};
     }
+
+    enable 'Redirect', url_patterns => [
+	'/bugzilla/(.*)' => ['/$1', 301 ]
+    ];
 
     # so mount / => $app will make *all* files redirect to the index.
     # instead we use an inline middleware to rewrite / to /index.cgi
