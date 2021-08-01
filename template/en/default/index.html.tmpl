@@ -11,9 +11,9 @@
   #%]
 
 [% PROCESS global/header.html.tmpl
-   title = "$terms.Bugzilla Main Page"
+   title = "R bug tracking system - Main Page"
    header = "Main Page" 
-   header_addl_info = "version $constants.BUGZILLA_VERSION"
+#  header_addl_info = "version $constants.BUGZILLA_VERSION"
 %]
 
 [% IF release %]
@@ -62,7 +62,7 @@
 [% END %]
 
 <div id="page-index">
-  <h1 id="welcome"> Welcome to [% terms.Bugzilla %]</h1>
+  <h1 id="welcome"> Welcome to the R bug tracking system</h1>
   <div class="intro">[% Hook.process('intro') %]</div>
 
   <div class="bz_common_actions">
@@ -86,6 +86,14 @@
       <li>
         <a id="help" href="[% docs_urlbase FILTER html %]using/index.html"><span>Documentation</span></a>
       </li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li><a href="enter_bug.cgi">Enter a new [% terms.bug %] report</a><br>&nbsp;</li>
+      <li><a href="buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=substring&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&deadlinefrom=&deadlineto=&bug_status=NEW&bug_status=ASSIGNED&bug_status=CONFIRMED&bug_status=REOPENED&bug_status=UNCONFIRMED&emailassigned_to1=1&emailtype1=substring&email1=&emailassigned_to2=1&emailreporter2=1&emailcc2=1&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=bugs.delta_ts%20desc&field0-0-0=noop&type0-0-0=noop&value0-0-0=">Show open bugs new-to-old</a><br>&nbsp;</li>
+      <li><a href="query.cgi">Search existing [% terms.bug %] reports</a></li>
     </ul>
   </div>
 
