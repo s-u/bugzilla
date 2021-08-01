@@ -167,6 +167,7 @@ foreach my $chart (@charts) {
 sub DiffDate {
   my ($datestr) = @_;
   my $date      = str2time($datestr);
+  return "invalid" if (!$date);
   my $age       = time() - $date;
 
   if ($age < 18 * 60 * 60) {
