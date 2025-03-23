@@ -41,7 +41,8 @@
     <input type="checkbox" name="use_markdown"
            id="use_markdown" value="1" checked="checked"
            onchange="refresh_markdown_preview([% bug.id FILTER none %])">
-    <label id="use_markdown_label" for="use_markdown">Use Markdown for this [% terms.comment %]</label>
-    (<a href="page.cgi?id=markdown.html" target="_blank" title="View Markdown Syntax Guide">help</a>)
+    <label id="use_markdown_label" for="use_markdown">Use basic Markdown for this [% terms.comment %]</label>
+    (please check the <em>Preview</em> and see the
+    <a href="page.cgi?id=markdown.html" target="_blank" title="View Markdown Syntax Guide">syntax guide</a>)
   </div>
 [% END %]
