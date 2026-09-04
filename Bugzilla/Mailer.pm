@@ -80,7 +80,6 @@ sub generate_email {
   }
 
   my $email = Bugzilla::MIME->new($msg_header);
-
   # If there's only one part, we don't need to set the overall content type
   # because Email::MIME will automatically take it from that part (bug 1657496)
   if (scalar(@parts) > 1) {
