@@ -91,7 +91,9 @@ my $app = builder {
     }
 
     enable 'Redirect', url_patterns => [
-	'/bugzilla/(.*)' => ['/$1', 301 ]
+	'/bugzilla/(.*)' => ['/$1', 301 ],
+	'/bugzilla3/(.*)' => ['/$1', 301 ],
+	'/bugzilla4/(.*)' => ['/$1', 301 ]
     ];
 
     # so mount / => $app will make *all* files redirect to the index.
@@ -100,7 +102,7 @@ my $app = builder {
         my $app = shift;
         return sub {
             my $env = shift;
-            $env->{PATH_INFO} = '/index.cgi' if $env->{PATH_INFO} eq '/';
+            $env->{PATH_INFO} = '/index.cgi' if ($env->{PATH_INFO} =~ /^(\/|\/bugzilla[34]{0,1})\/{0,1}$/);
             return $app->($env);
         };
     };
